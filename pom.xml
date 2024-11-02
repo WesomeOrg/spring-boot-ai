@@ -1,0 +1,119 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.2</version>
+        <relativePath/>
+    </parent>
+    <artifactId>spring-ai-ollama</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <name>spring ai ollama</name>
+    <modules>
+        <module>Bean Output Converter</module>
+        <module>Bean Output Converter using Fluent Api</module>
+        <module>Chat Properties</module>
+        <module>Chat Properties Runtime Options</module>
+        <module>ChatClient generic Options</module>
+        <module>ChatClient Ollama Options</module>
+        <module>Default System Text</module>
+        <module>Default System Text with parameters</module>
+        <module>ETL Pipeline Json</module>
+        <module>ETL Pipeline Text</module>
+        <module>ETL Pipeline Text Content Format Transformer</module>
+        <module>ETL Pipeline Text PDF Page</module>
+        <module>ETL Pipeline Text PDF Paragraph</module>
+        <module>ETL Pipeline Text Split File Document Writer</module>
+        <module>ETL Pipeline Text Split in chunks</module>
+        <module>ETL Pipeline Text Split in custom chunks</module>
+        <module>ETL Pipeline Text Split Keyword Metadata Enricher</module>
+        <module>ETL Pipeline Text Split Summary Metadata Enricher</module>
+        <module>ETL Pipeline Tika</module>
+        <module>Evaluation Testing Redis Vector Store</module>
+        <module>Function calling</module>
+        <module>Function calling Json Class Description</module>
+        <module>Generic Bean Types</module>
+        <module>Generic Bean Types using Low Level ChatModel API</module>
+        <module>Hello Spring Ai</module>
+        <module>Hello With Default Model</module>
+        <module>In Memory Chat Memory Advisor</module>
+        <module>List Output Converter</module>
+        <module>List Output Converter using the Low Level ChatModel API</module>
+        <module>Logging</module>
+        <module>Logging Customized</module>
+        <module>Map Output Converter</module>
+        <module>Map Output Converter using the Low Level ChatModel API</module>
+        <module>Ollama Embeddings</module>
+        <module>Prompt</module>
+        <module>Prompt Anger Identified</module>
+        <module>Prompt Ask for Intended Audience</module>
+        <module>Prompt Ask for Output in a Specified Format</module>
+        <module>Prompt Ask the Model to Check Whether Conditions are Not Satisfied</module>
+        <module>Prompt Ask the Model to Check Whether Conditions are Satisfied</module>
+        <module>Prompt Chat Memory Advisor</module>
+        <module>Prompt Expanding</module>
+        <module>Prompt Expanding With Temperature</module>
+        <module>Prompt Extract Instead of Summarize</module>
+        <module>Prompt Extract Product and Company Name from Customer Reviews</module>
+        <module>Prompt Few Shot Prompting</module>
+        <module>Prompt Format Conversion</module>
+        <module>Prompt Hallucinations</module>
+        <module>Prompt Hints</module>
+        <module>Prompt Identify Types of Emotions</module>
+        <module>Prompt Inferring Topics</module>
+        <module>Prompt Instruct the Model to Work Out Its Own Solution Before Rushing to a Conclusion</module>
+        <module>Prompt Instructing the Model to Work Out Its Own Solution First</module>
+        <module>Prompt Jail Break</module>
+        <module>Prompt Language Detection</module>
+        <module>Prompt Multiple Translation</module>
+        <module>Prompt News Alert for Certain Topics</module>
+        <module>Prompt Product Description</module>
+        <module>Prompt Sentiment</module>
+        <module>Prompt Specify the Steps Required to Complete a Task</module>
+        <module>Prompt Spellcheck Grammar Check</module>
+        <module>Prompt Structured Output</module>
+        <module>Prompt Summarization</module>
+        <module>Prompt Summarize Multiple Product Reviews</module>
+        <module>Prompt Summarize with a Focus on Price and Value</module>
+        <module>Prompt Summarize with a Focus on Shipping and Delivery</module>
+        <module>Prompt Summarize with a Word Sentence Character Limit</module>
+        <module>Prompt Template</module>
+        <module>Prompt Template Message</module>
+        <module>Prompt The Text is too Long</module>
+        <module>Prompt Tone Transformation</module>
+        <module>Prompt Translation</module>
+        <module>Prompt Translation in Formal and Informal</module>
+        <module>Prompt Universal Translator</module>
+        <module>Prompt with String Template</module>
+        <module>Query Database</module>
+        <module>Redis Vector Store</module>
+        <module>Redis Vector Store ETL Tika</module>
+        <module>Return Entity</module>
+        <module>Return Entity List</module>
+        <module>Returning a ChatResponse</module>
+        <module>Spring Ai Roles</module>
+        <module>Similarity Search</module>
+        <module>Simple Vector Store</module>
+        <module>Streaming Responses</module>
+    </modules>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.example.springai.SpringAiApplication</mainClass>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
