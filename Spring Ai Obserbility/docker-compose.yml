@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  ollama-model:
+    image: ollama/ollama:latest
+    container_name: ollama_container
+    ports:
+      - 11434:11434/tcp
+    healthcheck:
+      test: ollama --version || exit 1
+    command: serve
+    volumes:
+      - ./ollama/ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    pull_policy: missing
+    tty: true
+    restart: no
+    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+
+  zipkin:
+    image: 'openzipkin/zipkin:latest'
+    container_name: ollama_zipkin
+    ports:
+      - '9411:9411'
+
+  prometheus:
+    image: prom/prometheus
+    container_name: ollama_prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+  grafana:
+    image: grafana/grafana
+    container_name: ollama_grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - ./docker/grafana/provisioning/:/etc/grafana/provisioning/
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=SpringAi
+      - GF_USERS_ALLOW_SIGN_UP=false
