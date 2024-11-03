@@ -42,7 +42,7 @@ public class SpringAiController {
         var userMessage = new UserMessage(userMessageText);
         var sentimentMessage = new UserMessage(sentiment);
         var prompt = new Prompt(List.of(systemMessage, userMessage, sentimentMessage), OllamaOptions.builder()
-                .withTemperature(1f));
+                .withTemperature(1.0));
         return chatClient.prompt(prompt).call().chatResponse().getResult().getOutput().getContent();
 
     }
