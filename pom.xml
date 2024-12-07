@@ -98,6 +98,7 @@
         <module>Similarity Search</module>
         <module>Simple Vector Store</module>
         <module>Streaming Responses</module>
+        <module>Spring Ai Observability</module>
     </modules>
     <build>
         <plugins>
