@@ -1,0 +1,33 @@
+services:
+  ollama-model:
+    image: ollama/ollama:latest
+    container_name: ollama_container
+    ports:
+      - 11434:11434/tcp
+    healthcheck:
+      test: ollama --version || exit 1
+    command: serve
+    volumes:
+      - ./ollama/ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    pull_policy: missing
+    tty: true
+    restart: no
+    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open_webui_container
+    environment:
+      WEBUI_AUTH: false
+    ports:
+      - "8081:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - open-webui:/app/backend/data
+    restart: no
+
+volumes:
+  open-webui:
+  redisinsight_db:
