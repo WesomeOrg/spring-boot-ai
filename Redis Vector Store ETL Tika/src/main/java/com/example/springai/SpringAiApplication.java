@@ -43,7 +43,7 @@ public class SpringAiApplication {
     }
 
     @Bean
-    VectorStore redisVectorStore() throws IOException {
+    VectorStore redisVectorStore() {
         System.out.println("SpringAiApplication.redisVectorStore");
         try (DirectoryStream<Path> paths = Files.newDirectoryStream(Path.of(documentDirectory), inputFilenamePattern)) {
 

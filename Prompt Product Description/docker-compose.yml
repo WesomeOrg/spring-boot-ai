@@ -14,3 +14,19 @@ services:
     tty: true
     restart: no
     entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open_webui_container
+    environment:
+      WEBUI_AUTH: false
+    ports:
+      - "8081:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - open-webui:/app/backend/data
+    restart: no
+
+volumes:
+  open-webui:

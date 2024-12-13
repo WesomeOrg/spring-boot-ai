@@ -26,7 +26,7 @@ public class SpringAiController {
     }
 
     @GetMapping("/textDocument")
-    List<Document> textDocument() throws IOException {
+    List<Document> textDocument() {
         var textReader = new TextReader(apples);
         var documents = textReader.get();
         var splitter = new TokenTextSplitter(true);

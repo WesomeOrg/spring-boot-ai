@@ -4,9 +4,9 @@
 # Record Process ID.
 pid=$!
 # Pause for Ollama to start.
-sleep 5
+# the default Ollama Model in Spring Ai is mistral, but it can be changed in property file. Make sure to download the same Model here
 echo "🔴 Retrieve LLAMA3 model..."
-ollama pull llama3.1
+ollama pull mistral
 echo "🟢 Done!"
 # Wait for Ollama process to finish.
 wait $pid

@@ -24,7 +24,7 @@ public class SpringAiController {
                 Give me a country and its capital.
                   {format}
                 """;
-        var beanOutputConverter = new BeanOutputConverter<Country>(Country.class);
+        var beanOutputConverter = new BeanOutputConverter<>(Country.class);
         var generation = chatClient.prompt(new PromptTemplate(prompt, Map.of("format", beanOutputConverter.getFormat())).create())
                 .call()
                 .chatResponse()

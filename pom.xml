@@ -13,6 +13,7 @@
     <version>1.0.0</version>
     <name>spring ai ollama</name>
     <modules>
+        <module>Hello Spring Ai</module>
         <module>Bean Output Converter</module>
         <module>Bean Output Converter using Fluent Api</module>
         <module>Chat Properties</module>
@@ -37,7 +38,6 @@
         <module>Function calling Json Class Description</module>
         <module>Generic Bean Types</module>
         <module>Generic Bean Types using Low Level ChatModel API</module>
-        <module>Hello Spring Ai</module>
         <module>Hello With Default Model</module>
         <module>In Memory Chat Memory Advisor</module>
         <module>List Output Converter</module>
@@ -113,6 +113,41 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <!--    download the source and documentation of artifact   -->
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.8.1</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sources</goal>
+                            <goal>analyze</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--    format the code -->
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>2.24.1</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <directories>
+                        <directory>${project.build.sourceDirectory}</directory>
+                        <directory>${project.build.directory}/generated-sources</directory>
+                    </directories>
                 </configuration>
             </plugin>
         </plugins>
