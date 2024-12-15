@@ -1,1 +1,1 @@
-curl --location 'http://localhost:8080/defaultSystemText'
+curl --location 'http://localhost:8080/defaultSystemText?personality=comedian'

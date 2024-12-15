@@ -16,5 +16,4 @@ public class SpringAiApplication {
         return builder.defaultSystem("You are a {personality} chat bot that answers question in very detail with example.")
                 .build();
     }
-
 }

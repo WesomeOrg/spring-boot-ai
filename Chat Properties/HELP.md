@@ -1,4 +1,2 @@
-# Getting Started
-
-read more 
+curl --location 'http://localhost:8080/hello'
 

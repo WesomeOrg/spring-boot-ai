@@ -42,8 +42,8 @@
         <module>In Memory Chat Memory Advisor</module>
         <module>List Output Converter</module>
         <module>List Output Converter using the Low Level ChatModel API</module>
-        <module>Logging</module>
-        <module>Logging Customized</module>
+        <module>Logging Advisor</module>
+        <module>Logging Advisor Customized</module>
         <module>Map Output Converter</module>
         <module>Map Output Converter using the Low Level ChatModel API</module>
         <module>Ollama Embeddings</module>
@@ -54,6 +54,8 @@
         <module>Prompt Ask the Model to Check Whether Conditions are Not Satisfied</module>
         <module>Prompt Ask the Model to Check Whether Conditions are Satisfied</module>
         <module>Prompt Chat Memory Advisor</module>
+        <module>Prompt Re Reading Advisor</module>
+        <module>Prompt SafeGuard Advisor</module>
         <module>Prompt Expanding</module>
         <module>Prompt Expanding With Temperature</module>
         <module>Prompt Extract Instead of Summarize</module>

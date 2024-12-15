@@ -5,9 +5,9 @@
 pid=$!
 # Pause for Ollama to start.
 sleep 5
-# The default Ollama Model in Spring Ai is mistral, but it can be changed in property file. Make sure to download the same Model here
+# The default Ollama Model in Spring Ai is mistral, but it can be changed in the applications property file. Make sure to download the same Model here
 echo "🔴 Retrieve LLAMA3 model..."
 ollama pull mistral
 echo "🟢 Done!"
-# Wait for Ollama process to finish.
+# Wait for the Ollama process to finish.
 wait $pid
