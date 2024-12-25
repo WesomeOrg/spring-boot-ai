@@ -14,7 +14,7 @@ public class SpringAiController {
 
     public SpringAiController(ChatClient.Builder chatClient) {
         List<String> forbiddenProgrammingLanguages = List.of("C++", "Python", "C#", "Ruby", "JavaScript", "PHP", "Perl", "Scala", "Kotlin");
-        SafeGuardAdvisor safeGuardAdvisor = new SafeGuardAdvisor(forbiddenProgrammingLanguages,"sorry we learn Java only.", 1);
+        SafeGuardAdvisor safeGuardAdvisor = new SafeGuardAdvisor(forbiddenProgrammingLanguages, "sorry we learn Java only.", 1);
         this.chatClient = chatClient.defaultAdvisors(safeGuardAdvisor).build();
     }
 

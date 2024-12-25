@@ -20,6 +20,8 @@
         <module>Chat Properties Runtime Options</module>
         <module>ChatClient generic Options</module>
         <module>ChatClient Ollama Options</module>
+        <module>Auto Pulling Models</module>
+        <module>Spring Ai Multimodal</module>
         <module>Default System Text</module>
         <module>Default System Text with parameters</module>
         <module>ETL Pipeline Json</module>

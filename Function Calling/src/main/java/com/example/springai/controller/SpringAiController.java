@@ -24,9 +24,8 @@ public class SpringAiController {
     public String function(@RequestParam(value = "question") String question) {
         SystemMessage systemMessage = new SystemMessage("you are a helpful AI assistant answering question about cities around the world and its current weather in very detailed.");
         UserMessage userMessage = new UserMessage(question);
-        OllamaOptions currentWeatherFunction = OllamaOptions.builder().withFunction("currentWeatherFunction").build();
+        OllamaOptions currentWeatherFunction = OllamaOptions.builder().function("currentWeatherFunction").build();
         Prompt prompt = new Prompt(List.of(systemMessage, userMessage), currentWeatherFunction);
-
         ChatResponse chatResponse = chatClient.prompt(prompt).call().chatResponse();
         return chatResponse.getResult().getOutput().getContent();
     }

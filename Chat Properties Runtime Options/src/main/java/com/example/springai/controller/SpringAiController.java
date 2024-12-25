@@ -14,8 +14,8 @@ public class SpringAiController {
 
     public SpringAiController(ChatClient.Builder chatClient) {
         this.chatClient = chatClient.defaultOptions(OllamaOptions.builder()
-                .withModel(OllamaModel.LLAMA3_1)
-                .withTemperature(0.4f)
+                .withModel(OllamaModel.MISTRAL)
+                .withTemperature(0.4)
                 .withFormat(FORMAT_NAME_JSON)
                 .withKeepAlive("5m")
                 .build()).build();
