@@ -94,6 +94,8 @@
         <module>Prompt with String Template</module>
         <module>Query Database</module>
         <module>Redis Vector Store</module>
+        <module>Redis Vector Store With Jedis</module>
+        <module>Redis Vector Store Custom Configuration With Jedis</module>
         <module>Redis Vector Store ETL Tika</module>
         <module>Return Entity</module>
         <module>Return Entity List</module>
