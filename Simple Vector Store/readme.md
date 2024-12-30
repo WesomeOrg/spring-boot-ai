@@ -1,1 +1,1 @@
-curl --location 'http://localhost:8080/defaultSystemText'
+curl --location 'localhost:8080/simpleVectorStore'

@@ -1,4 +1,4 @@
 # Getting Started
 
-read more 
+curl --location 'localhost:8080/prompt'
 

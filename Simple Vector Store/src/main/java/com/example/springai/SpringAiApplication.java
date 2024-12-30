@@ -1,8 +1,7 @@
 package com.example.springai;
 
 import org.springframework.ai.document.Document;
-import org.springframework.ai.ollama.OllamaEmbeddingModel;
-import org.springframework.ai.ollama.api.OllamaApi;
+import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.reader.TextReader;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.ai.vectorstore.SimpleVectorStore;
@@ -31,10 +30,9 @@ public class SpringAiApplication {
     }
 
     @Bean
-    SimpleVectorStore simpleVectorStore() {
+    SimpleVectorStore simpleVectorStore(EmbeddingModel embeddingModel) {
         System.out.println("SpringAiApplication.simpleVectorStore");
-        OllamaEmbeddingModel ollamaEmbeddingModel = new OllamaEmbeddingModel(new OllamaApi());
-        SimpleVectorStore simpleVectorStore = new SimpleVectorStore(ollamaEmbeddingModel);
+        SimpleVectorStore simpleVectorStore = SimpleVectorStore.builder(embeddingModel).build();
         File vectorStoreFile = getVectorStoreFile();
         if (vectorStoreFile.exists() && vectorStoreFile.length() != 0) {
             simpleVectorStore.load(vectorStoreFile);
@@ -50,11 +48,9 @@ public class SpringAiApplication {
         return simpleVectorStore;
     }
 
-
     private File getVectorStoreFile() {
         Path path = Paths.get("src/main/resources/data");
         var vectorStoreFile = path.toFile().getAbsolutePath() + "\\" + vectorStoreFileName;
         return new File(vectorStoreFile);
     }
-
 }

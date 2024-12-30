@@ -14,10 +14,6 @@ import org.springframework.core.io.Resource;
 
 @SpringBootApplication
 public class SpringAiApplication {
-
-    @Value("vectorStore.json")
-    private String vectorStoreFileName;
-
     @Value("classpath:/docs/spring-faq.pdf")
     private Resource pdfResource;
 
@@ -38,7 +34,6 @@ public class SpringAiApplication {
                         .build())
                 .withPagesPerDocument(1)
                 .build());
-
         var tokenTextSplitter = new TokenTextSplitter();
         this.vectorStore.accept(tokenTextSplitter.apply(pdfReader.get()));
         return vectorStore;
