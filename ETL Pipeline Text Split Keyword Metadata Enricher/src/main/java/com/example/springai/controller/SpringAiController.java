@@ -35,10 +35,10 @@ public class SpringAiController {
                 .putAll(Map.of("length", apples.contentLength(), "last modified", LocalDateTime.ofInstant(Instant.ofEpochMilli(apples.lastModified()), ZoneId.systemDefault())));
         var documents = textReader.get();
         TokenTextSplitter splitter = new TokenTextSplitter(true);
-        return enrichDocuments(splitter.apply(documents));
+        return keywordMetadataEnricher(splitter.apply(documents));
     }
 
-    List<Document> enrichDocuments(List<Document> documents) {
+    List<Document> keywordMetadataEnricher(List<Document> documents) {
         KeywordMetadataEnricher keywordMetadataEnricher = new KeywordMetadataEnricher(chatModel, 5);
         return keywordMetadataEnricher.apply(documents);
     }

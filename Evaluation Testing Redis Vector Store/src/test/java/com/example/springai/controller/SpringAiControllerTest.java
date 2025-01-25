@@ -31,8 +31,8 @@ class SpringAiControllerTest {
     @Test
     void simpleVectorStore() {
         var userText = "What is Spring Framework?";
-        var response = springAiController.simpleVectorStore(userText);
-        var content = response.getResult().getOutput().getContent();
+        var response = springAiController.redisVectorStore(userText);
+        var content = response.getResult().getOutput().getText();
         var relevancyEvaluator = new RelevancyEvaluator(ChatClient.builder(chatModel));
         var evaluationRequest = new EvaluationRequest(userText, response.getMetadata()
                 .get(QuestionAnswerAdvisor.RETRIEVED_DOCUMENTS), content);

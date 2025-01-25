@@ -11,7 +11,7 @@
     <groupId>com.example.springai</groupId>
     <artifactId>generic_bean_types_using_low_level_chatmodel_api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Generic Bean Types using low-level ChatModel API</name>
+    <name>Generic Bean Types using Low Level ChatModel API</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

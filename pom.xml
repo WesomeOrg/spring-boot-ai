@@ -14,8 +14,9 @@
     <name>spring ai ollama</name>
     <modules>
         <module>Hello Spring Ai</module>
-        <module>Bean Output Converter</module>
-        <module>Bean Output Converter using Fluent Api</module>
+        <module>Bean Output Converter using Low Level ChatModel</module>
+        <module>Bean Output Converter using High Level ChatClient</module>
+        <module>Bean Output Converter Property Ordering</module>
         <module>Chat Properties</module>
         <module>Chat Properties Runtime Options</module>
         <module>ChatClient generic Options</module>
@@ -24,21 +25,26 @@
         <module>Spring Ai Multimodal</module>
         <module>Default System Text</module>
         <module>Default System Text with parameters</module>
-        <module>ETL Pipeline Json</module>
         <module>ETL Pipeline Text</module>
+        <module>ETL Pipeline Json</module>
+        <module>ETL Pipeline Json Pointers</module>
+        <module>ETL Pipeline Token Text Splitter Transformer</module>
+        <module>ETL Pipeline Token Text Splitter Transformer Customized</module>
         <module>ETL Pipeline Text Content Format Transformer</module>
+        <module>ETL Pipeline Markdown</module>
         <module>ETL Pipeline Text PDF Page</module>
         <module>ETL Pipeline Text PDF Paragraph</module>
-        <module>ETL Pipeline Text Split File Document Writer</module>
+        <module>ETL Pipeline Document Writer</module>
         <module>ETL Pipeline Text Split in chunks</module>
         <module>ETL Pipeline Text Split in custom chunks</module>
         <module>ETL Pipeline Text Split Keyword Metadata Enricher</module>
         <module>ETL Pipeline Text Split Summary Metadata Enricher</module>
         <module>ETL Pipeline Tika</module>
         <module>Evaluation Testing Redis Vector Store</module>
+        <module>Evaluation Testing Fact Checking Evaluator</module>
         <module>Function calling</module>
         <module>Function calling Json Class Description</module>
-        <module>Generic Bean Types</module>
+        <module>Generic Bean Types using High Level ChatClient API</module>
         <module>Generic Bean Types using Low Level ChatModel API</module>
         <module>Hello With Default Model</module>
         <module>In Memory Chat Memory Advisor</module>
@@ -103,6 +109,7 @@
         <module>Spring Ai Roles</module>
         <module>Similarity Search</module>
         <module>Simple Vector Store</module>
+        <module>Ollama CodeLlama with Redis Vector Store</module>
         <module>Streaming Responses</module>
         <module>Spring Ai Observability</module>
     </modules>

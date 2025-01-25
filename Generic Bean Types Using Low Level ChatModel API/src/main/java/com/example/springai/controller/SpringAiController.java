@@ -18,7 +18,7 @@ public class SpringAiController {
     private ChatModel chatModel;
 
     @GetMapping("/beanOutputParser")
-    Country hello(@RequestParam(value = "letter", defaultValue = "a") String letter) {
+    Country beanOutputParser(@RequestParam(value = "letter", defaultValue = "a") String letter) {
         var template = """
                 Give me a country starts with {letter} and its capital.
                 {format}

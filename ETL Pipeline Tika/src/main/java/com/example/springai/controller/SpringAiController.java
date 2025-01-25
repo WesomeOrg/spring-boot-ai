@@ -22,8 +22,8 @@ public class SpringAiController {
     @Value("${inputFilenamePattern}")
     private String inputFilenamePattern;
 
-    @GetMapping("/pdfDocument")
-    List<Document> pdfDocument() throws IOException {
+    @GetMapping("/tikaDocument")
+    List<Document> tikaDocument() throws IOException {
         List<Document> documentList = new ArrayList<>();
         for (Path path : Files.newDirectoryStream(Path.of(documentDirectory.getURI()), inputFilenamePattern))
             new TikaDocumentReader(new ByteArrayResource(Files.readAllBytes(path))).get().forEach(document -> {

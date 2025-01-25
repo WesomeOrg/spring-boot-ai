@@ -14,7 +14,7 @@ public class SpringAiController {
 
     @GetMapping("/hello")
     String hello() {
-        String helloPrompt = "Hello, I am learning Ai with Spring";
+        var helloPrompt = "Hello, I am learning Ai with Spring";
         return this.chatClient.prompt().user(helloPrompt).call().content();
     }
 }

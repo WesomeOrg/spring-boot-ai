@@ -29,7 +29,7 @@ public class SpringAiController {
     }
 
     @GetMapping(path = "/query")
-    public AppleDbAiResponse query(@RequestParam(value = "question") String question) throws IOException {
+    public AppleDbAiResponse query(@RequestParam(value = "question", defaultValue = "tell me all the apple which are sweet in taste?") String question) throws IOException {
         String appleDataBaseSchema = appleSchema.getContentAsString(Charset.defaultCharset());
         String query = chatClient.prompt()
                 .advisors(new SimpleLoggerAdvisor())

@@ -3,7 +3,7 @@ package com.example.springai.controller;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.reader.TextReader;
-import org.springframework.ai.transformer.KeywordMetadataEnricher;
+import org.springframework.ai.transformer.SummaryMetadataEnricher;
 import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,11 +35,10 @@ public class SpringAiController {
                 .putAll(Map.of("length", apples.contentLength(), "last modified", LocalDateTime.ofInstant(Instant.ofEpochMilli(apples.lastModified()), ZoneId.systemDefault())));
         var documents = textReader.get();
         TokenTextSplitter splitter = new TokenTextSplitter(true);
-        return enrichDocuments(splitter.apply(documents));
+        return summaryMetadata().apply(splitter.apply(documents));
     }
 
-    List<Document> enrichDocuments(List<Document> documents) {
-        KeywordMetadataEnricher keywordMetadataEnricher = new KeywordMetadataEnricher(chatModel, 5);
-        return keywordMetadataEnricher.apply(documents);
+    public SummaryMetadataEnricher summaryMetadata() {
+        return new SummaryMetadataEnricher(chatModel, List.of(SummaryMetadataEnricher.SummaryType.PREVIOUS, SummaryMetadataEnricher.SummaryType.CURRENT, SummaryMetadataEnricher.SummaryType.NEXT));
     }
 }

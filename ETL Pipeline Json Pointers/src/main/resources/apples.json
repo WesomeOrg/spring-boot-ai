@@ -1,0 +1,21 @@
+{
+  "fruit": "apple",
+  "details": [
+    {
+      "appleId": 1,
+      "appleName": "Macintosh",
+      "taste": {
+        "raw": "tangy",
+        "ripe": "sweet"
+      }
+    },
+    {
+      "appleId": 2,
+      "appleName": "Fuji",
+      "taste": {
+        "raw": "tangy",
+        "ripe": "sweet"
+      }
+    }
+  ]
+}

@@ -23,6 +23,6 @@ public class SpringAiController {
         var imageData = new ClassPathResource("/hello.png");
         var userMessage = new UserMessage("Explain what do you see in this picture?", List.of(new Media(MimeTypeUtils.IMAGE_PNG, imageData)));
         var response = this.chatModel.call(new Prompt(userMessage));
-        return response.getResult().getOutput().getContent();
+        return response.getResult().getOutput().getText();
     }
 }

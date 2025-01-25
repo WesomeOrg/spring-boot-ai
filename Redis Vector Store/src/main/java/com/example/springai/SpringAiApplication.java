@@ -29,7 +29,7 @@ public class SpringAiApplication {
         System.out.println("SpringAiApplication.redisVectorStore");
         PagePdfDocumentReader pdfReader = new PagePdfDocumentReader(pdfResource, PdfDocumentReaderConfig.builder()
                 .withPageExtractedTextFormatter(ExtractedTextFormatter.builder()
-                        .withNumberOfBottomTextLinesToDelete(3)
+                        .withNumberOfBottomTextLinesToDelete(1)
                         .withNumberOfTopPagesToSkipBeforeDelete(1)
                         .build())
                 .withPagesPerDocument(1)

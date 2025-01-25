@@ -14,14 +14,14 @@ public class SpringAiController {
 
     public SpringAiController(ChatClient.Builder chatClient) {
         this.chatClient = chatClient.defaultOptions(OllamaOptions.builder()
-                .withModel(OllamaModel.MISTRAL)
-                .withTemperature(0.4)
-                .withFormat(FORMAT_NAME_JSON)
-                .withKeepAlive("5m")
+                .model(OllamaModel.MISTRAL)
+                .temperature(0.4)
+                .format(FORMAT_NAME_JSON)
+                .keepAlive("5m")
                 .build()).build();
     }
 
-    @GetMapping("/hello")
+    @GetMapping ("/hello")
     String hello() {
         String helloPrompt = "Hello, I am learning Ai with Spring";
         return this.chatClient.prompt().user(helloPrompt).call().content();

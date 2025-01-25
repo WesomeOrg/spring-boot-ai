@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <groupId>com.example.springai</groupId>
-    <artifactId>etl-pipeline-text_pdf_paragraph</artifactId>
+    <artifactId>etl-pipeline-text-pdf-paragraph</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ETL Pipeline Text PDF Paragraph</name>
     <description>Demo project for Spring Boot</description>

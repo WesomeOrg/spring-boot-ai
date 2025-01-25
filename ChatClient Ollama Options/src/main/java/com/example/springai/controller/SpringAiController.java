@@ -21,12 +21,12 @@ public class SpringAiController {
     String hello() {
         String message = "Hello, I am learning Ai with Spring";
         Prompt prompt = new Prompt(message, OllamaOptions.builder()
-                .withModel(OllamaModel.LLAMA3_1)
-                .withFrequencyPenalty(1.3f)
-                .withPresencePenalty(1.0f)
-                .withStop(List.of("this-is-the-end", "done"))
-                .withTemperature(0.7f)
-                .withTopP(0f)
+                .model(OllamaModel.LLAMA3_1)
+                .frequencyPenalty(Double.valueOf(1.3))
+                .presencePenalty(Double.valueOf(1.0))
+                .stop(List.of("this-is-the-end", "done"))
+                .temperature(Double.valueOf(0.7))
+                .topP(Double.valueOf(0))
                 .build());
         return this.chatClient.prompt(prompt).call().content();
     }
