@@ -26,11 +26,11 @@ public class SpringAiController {
                 If the sentiment is negative, apologize and suggest that they can reach out to customer service. Make sure to use specific details from the review.
                 Write in a concise and professional tone.
                 Sign the email as `AI customer agent`.
-
+                
                 Customer review: ```{userMessageText}```
-
+                
                 Review sentiment: {sentiment}
-
+                
                 """;
         var sentiment = "negative";
 
@@ -42,8 +42,9 @@ public class SpringAiController {
         var userMessage = new UserMessage(userMessageText);
         var sentimentMessage = new UserMessage(sentiment);
         var prompt = new Prompt(List.of(systemMessage, userMessage, sentimentMessage), OllamaOptions.builder()
-                .withTemperature(1.0));
-        return chatClient.prompt(prompt).call().chatResponse().getResult().getOutput().getContent();
+                .temperature(1.0)
+                .build());
+        return chatClient.prompt(prompt).call().chatResponse().getResult().getOutput().getText();
 
     }
 }

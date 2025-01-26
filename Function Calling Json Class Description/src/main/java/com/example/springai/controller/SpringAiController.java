@@ -27,6 +27,6 @@ public class SpringAiController {
         OllamaOptions currentWeatherFunction = OllamaOptions.builder().function("currentWeatherFunction").build();
         Prompt prompt = new Prompt(List.of(systemMessage, userMessage), currentWeatherFunction);
         ChatResponse chatResponse = chatClient.prompt(prompt).call().chatResponse();
-        return chatResponse.getResult().getOutput().getContent();
+        return chatResponse.getResult().getOutput().getText();
     }
 }

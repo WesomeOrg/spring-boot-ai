@@ -25,11 +25,12 @@ public class SpringAiController {
     @GetMapping("/tikaDocument")
     List<Document> tikaDocument() throws IOException {
         List<Document> documentList = new ArrayList<>();
-        for (Path path : Files.newDirectoryStream(Path.of(documentDirectory.getURI()), inputFilenamePattern))
+        for (Path path : Files.newDirectoryStream(Path.of(documentDirectory.getURI()), inputFilenamePattern)) {
             new TikaDocumentReader(new ByteArrayResource(Files.readAllBytes(path))).get().forEach(document -> {
                 document.getMetadata().put("source", path.getFileName());
                 documentList.add(document);
             });
+        }
         return documentList;
     }
 }

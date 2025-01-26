@@ -29,7 +29,7 @@ public class SpringAiController {
                 .user(question)
                 .call()
                 .chatResponse();
-        return response.getResult().getOutput().getContent();
+        return response.getResult().getOutput().getText();
     }
 
     @GetMapping("/codellamaStoreSimilaritySearch")

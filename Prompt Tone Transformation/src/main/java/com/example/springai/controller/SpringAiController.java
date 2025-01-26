@@ -29,6 +29,6 @@ public class SpringAiController {
         var systemMessage = new SystemMessage(systemMessageText);
         var userMessage = new UserMessage(userMessageText);
         var prompt1 = new Prompt(List.of(systemMessage, userMessage));
-        return chatClient.prompt(prompt1).call().chatResponse().getResult().getOutput().getContent();
+        return chatClient.prompt(prompt1).call().chatResponse().getResult().getOutput().getText();
     }
 }

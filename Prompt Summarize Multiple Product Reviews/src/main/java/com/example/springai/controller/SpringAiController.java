@@ -45,7 +45,7 @@ public class SpringAiController {
         return userMessageText.stream()
                 .map(UserMessage::new)
                 .map(userMessage -> new Prompt(List.of(systemMessage, userMessage)))
-                .map(prompt -> chatClient.prompt(prompt).call().chatResponse().getResult().getOutput().getContent())
+                .map(prompt -> chatClient.prompt(prompt).call().chatResponse().getResult().getOutput().getText())
                 .toList();
     }
 }

@@ -19,10 +19,10 @@ public class ReReadingAdvisor implements CallAroundAdvisor, StreamAroundAdvisor 
         Map<String, Object> advisedUserParams = new HashMap<>(advisedRequest.userParams());
         advisedUserParams.put("re2_input_query", advisedRequest.userText());
 
-        return AdvisedRequest.from(advisedRequest).withUserText("""
+        return AdvisedRequest.from(advisedRequest).userText("""
                 {re2_input_query}
                 Read the question again: {re2_input_query}
-                """).withUserParams(advisedUserParams).build();
+                """).userParams(advisedUserParams).build();
     }
 
     @Override

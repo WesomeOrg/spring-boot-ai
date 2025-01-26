@@ -27,6 +27,6 @@ public class SpringAiController {
         });
         var prompt = new PromptTemplate(template, Map.of("letter", letter, "format", outputConverter.getFormat())).create();
         var generation = chatModel.call(prompt).getResult();
-        return outputConverter.convert(generation.getOutput().getContent());
+        return outputConverter.convert(generation.getOutput().getText());
     }
 }

@@ -14,6 +14,6 @@ public class SpringAiController {
 
     @GetMapping("/similaritySearch")
     public String similaritySearch(@RequestParam(value = "question", defaultValue = "What is Spring Framework?") String question) {
-        return redisVectorStore.similaritySearch(SearchRequest.query(question)).getFirst().getContent();
+        return redisVectorStore.similaritySearch(SearchRequest.builder().query(question).build()).getFirst().getText();
     }
 }

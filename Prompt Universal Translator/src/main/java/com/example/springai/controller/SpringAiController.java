@@ -33,7 +33,7 @@ public class SpringAiController {
         return language.stream()
                 .map(UserMessage::new)
                 .map(userMessage -> new Prompt(List.of(systemMessage, userMessage)))
-                .map(prompt1 -> chatClient.prompt(prompt1).call().chatResponse().getResult().getOutput().getContent());
+                .map(prompt1 -> chatClient.prompt(prompt1).call().chatResponse().getResult().getOutput().getText());
 
     }
 }

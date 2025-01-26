@@ -26,6 +26,6 @@ public class SpringAiController {
         var listOutputConverter = new ListOutputConverter(new DefaultConversionService());
         var prompt = new PromptTemplate(template, Map.of("countryNames", countryNames, "format", listOutputConverter.getFormat())).create();
         var generation = this.chatModel.call(prompt).getResult();
-        return listOutputConverter.convert(generation.getOutput().getContent());
+        return listOutputConverter.convert(generation.getOutput().getText());
     }
 }

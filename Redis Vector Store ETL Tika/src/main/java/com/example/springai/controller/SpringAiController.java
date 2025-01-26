@@ -22,13 +22,13 @@ public class SpringAiController {
         this.chatClient = builder.build();
     }
 
-    @GetMapping("/simpleVectorStore")
-    public String simpleVectorStore(@RequestParam(value = "question", defaultValue = "What is Spring Framework?") String question) {
+    @GetMapping("/redisVectorStore")
+    public String redisVectorStore(@RequestParam(value = "question", defaultValue = "What is Spring Framework?") String question) {
         ChatResponse response = chatClient.prompt()
-                .advisors(new QuestionAnswerAdvisor(redisVectorStore, SearchRequest.defaults()))
+                .advisors(new QuestionAnswerAdvisor(redisVectorStore, SearchRequest.builder().build()))
                 .user(question)
                 .call()
                 .chatResponse();
-        return response.getResult().getOutput().getContent();
+        return response.getResult().getOutput().getText();
     }
 }
