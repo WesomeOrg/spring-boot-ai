@@ -11,7 +11,7 @@
     <groupId>com.example.springai</groupId>
     <artifactId>auto_pulling_models</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Auto-pulling Models</name>
+    <name>Auto Pulling Models</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
