@@ -3,29 +3,28 @@ package com.example.springai.controller;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.model.ChatModel;
+import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.evaluation.EvaluationRequest;
 import org.springframework.ai.evaluation.EvaluationResponse;
-import org.springframework.ai.evaluation.FactCheckingEvaluator;
+import org.springframework.ai.evaluation.RelevancyEvaluator;
+import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.core.io.Resource;
-
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class SpringAiControllerTest {
     @Autowired
+    private VectorStore simpleVectorStore;
+
+    @Autowired
     private ChatModel chatModel;
     private ChatClient chatClient;
 
-    @Value ("classpath:/documents/apples.st")
-    private Resource appleSt;
 
     @BeforeEach
     public void setup() {
@@ -33,11 +32,38 @@ class SpringAiControllerTest {
     }
 
     @Test
-    void factCheckingEvaluator() throws IOException {
-        var factCheckingEvaluator = new FactCheckingEvaluator(ChatClient.builder(chatModel));
-        String claim = "The Macintosh is an operating system designed by Apple Inc";
-        EvaluationRequest evaluationRequest = new EvaluationRequest(appleSt.getContentAsString(StandardCharsets.UTF_8), Collections.emptyList(), claim);
-        EvaluationResponse evaluationResponse = factCheckingEvaluator.evaluate(evaluationRequest);
-        assertFalse(evaluationResponse.isPass(), "The claim should not be supported by the context");
+    void falseFactCheckingEvaluator() {
+        String userText = "The Macintosh is an operating system designed by Apple Inc";
+        ChatResponse response = ChatClient.builder(chatModel)
+                .build()
+                .prompt()
+                .advisors(new QuestionAnswerAdvisor(simpleVectorStore))
+                .user(userText)
+                .call()
+                .chatResponse();
+        String responseContent = response.getResult().getOutput().getText();
+        var relevancyEvaluator = new RelevancyEvaluator(ChatClient.builder(chatModel));
+        EvaluationRequest evaluationRequest = new EvaluationRequest(userText, response.getMetadata()
+                .get(QuestionAnswerAdvisor.RETRIEVED_DOCUMENTS), responseContent);
+        EvaluationResponse evaluationResponse = relevancyEvaluator.evaluate(evaluationRequest);
+        assertFalse(evaluationResponse.isPass(), "Response is not relevant to the question");
+    }
+
+    @Test
+    void trueFactCheckingEvaluator() {
+        String userText = "The Macintosh is an Apple";
+        ChatResponse response = ChatClient.builder(chatModel)
+                .build()
+                .prompt()
+                .advisors(new QuestionAnswerAdvisor(simpleVectorStore))
+                .user(userText)
+                .call()
+                .chatResponse();
+        String responseContent = response.getResult().getOutput().getText();
+        var relevancyEvaluator = new RelevancyEvaluator(ChatClient.builder(chatModel));
+        EvaluationRequest evaluationRequest = new EvaluationRequest(userText, response.getMetadata()
+                .get(QuestionAnswerAdvisor.RETRIEVED_DOCUMENTS), responseContent);
+        EvaluationResponse evaluationResponse = relevancyEvaluator.evaluate(evaluationRequest);
+        assertTrue(evaluationResponse.isPass(), "The claim is supported by the context");
     }
 }
