@@ -14,7 +14,7 @@ import java.util.List;
 public class SpringAiController {
     private final Resource markDown;
 
-    public SpringAiController(@Value("classpath:help.md") Resource markDown) {
+    public SpringAiController(@Value("classpath:readme.md") Resource markDown) {
         this.markDown = markDown;
     }
 

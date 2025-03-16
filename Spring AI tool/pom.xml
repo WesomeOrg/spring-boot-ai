@@ -9,14 +9,14 @@
         <relativePath/>
     </parent>
     <groupId>com.example.springai</groupId>
-    <artifactId>return-entity-list</artifactId>
+    <artifactId>spring-ai-tool</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Return Entity List</name>
+    <name>Spring Ai Tool</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>21</java.version>
-        <spring-ai.version>1.0.0-SNAPSHOT</spring-ai.version>
+        <spring-ai.version>1.0.0-M6</spring-ai.version>
     </properties>
     <dependencies>
         <dependency>
@@ -37,6 +37,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-mcp-client-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>

@@ -1,123 +1,189 @@
 # spring-boot-ai
 
-read more https://wesome.org/index.php/ollama-llm-api-integration
+https://ik.imagekit.io/g2zqnpc4fx/springai/spring_ai_advisors.png
 
-list all available Ollama models on the docker
+![Ollama on Docker](https://ik.imagekit.io/g2zqnpc4fx/springai/ollama_on_docker.png)
+
+[Ollama on Docker](https://wesome.org/ollama-docker)
+Ollama can be easily downloaded and installed on all major OS platforms, such as Linux, Macintosh, and Windows. The official download link provides more information about the installation process. We will install Ollama on Docker for our tutorial, which is common for all OS platforms.
+
+[Read More About Ollama On Docker With API Integration](https://wesome.org/ollama-llm-api-integration)
+
+**list all available Ollama models on the docker**
+
+```
 docker exec -it ollama_container ollama list
+```
 
-show information about the Ollama mistral model
+**show information about the Ollama mistral model**
+
+```
 docker exec -it ollama_container ollama show mistral
+```
 
-show which Ollama model is currently loaded
+**show which Ollama model is currently loaded**
+
+```
 docker exec -it ollama_container ollama ps
+```
 
-stop the Ollama model
+**stop the Ollama model**
+
+```
 docker exec -it ollama_container ollama stop mistral
+```
 
-show Ollama model mode file
+**show Ollama model mode file**
+
+```
 docker exec -it ollama_container ollama show --modelfile mistral
+```
 
-Get the list of models
+**Get the list of models**
+
+```
 curl --location 'http://localhost:11434/api/tags'
+```
 
-Show model info
+**Show model info**
+
+```
 curl --location 'http://localhost:11434/api/show' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral"
 }'
+```
 
-Show Model Info in Verbose Mode
+**Show Model Info in Verbose Mode**
+
+```
 curl --location 'http://localhost:11434/api/show' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral",
 "verbose":true
 }'
+```
 
-Pull a model
+**Pull a model**
+
+```
 curl --location 'http://localhost:11434/api/pull' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral"
 }'
+```
 
-Pull Model in Streaming Mode
+**Pull Model in Streaming Mode**
+
+```
 curl --location 'http://localhost:11434/api/pull' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral",
 "stream":true
 }'
+```
 
-Create Ollama Model
+**Create Ollama Model**
+
+```
 curl --location 'http://localhost:11434/api/create' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mario",
 "modelfile": "FROM mistral\nSYSTEM You are mario from Super Mario Bros."
 }'
+```
 
-Copy a Model
+**Copy a Model**
+
+```
 curl --location 'http://localhost:11434/api/copy' \
 --header 'Content-Type: application/json' \
 --data '{
 "source": "mistral",
 "destination": "mistral-backup"
 }'
+```
 
-Delete a Model
+**Delete a Model**
+
+```
 curl -L -X DELETE 'http://localhost:11434/api/delete' \
 -H 'Content-Type: application/json' \
 -d '{
 "model": "mistral-backup:latest"
 }'
+```
 
-A list of running Models
+**A list of running Models**
+
+```
 curl --location --request GET 'http://localhost:11434/api/ps' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral",
 "input": "Why is the sky blue?"
 }'
+```
 
-Load the model in memory
+**Load the model in memory**
+
+```
 curl --location 'http://localhost:11434/api/generate' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral"
 }'
+```
 
-Load the model in memory forever
+**Load the model in memory forever**
+
+```
 curl --location 'http://localhost:11434/api/generate' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral",
 "keep_alive": -1
 }'
+```
 
-unload model
+**unload model**
+
+```
 curl --location 'http://localhost:11434/api/generate' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral",
 "keep_alive": 0
 }'
+```
 
-Generate Ollama Model response in streaming mode
+**Generate Ollama Model response in streaming mode**
+
+```
 curl --location 'http://localhost:11434/api/generate' --header 'Content-Type: application/json' --data '{
 "model": "mistral",
 "prompt": "Why is the sky blue?"
 }'
+```
 
-Generate Ollama Model response in non-streaming mode
+**Generate Ollama Model response in non-streaming mode**
+
+```
 curl --location 'http://localhost:11434/api/generate' --header 'Content-Type: application/json' --data '{
 "model": "mistral",
 "prompt": "Why is the sky blue?",
 "stream": false
 }'
+```
 
-Send Image
+**Send Image**
+
+```
 curl --location 'http://localhost:11434/api/generate' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -128,8 +194,11 @@ curl --location 'http://localhost:11434/api/generate' \
 ],
 "stream": false
 }'
+```
 
-Request in Raw Mode
+**Request in Raw Mode**
+
+```
 curl --location 'http://localhost:11434/api/generate' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -138,8 +207,11 @@ curl --location 'http://localhost:11434/api/generate' \
 "raw": true,
 "stream": false
 }'
+```
 
-seed
+**seed**
+
+```
 curl --location 'http://localhost:11434/api/generate' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -149,8 +221,11 @@ curl --location 'http://localhost:11434/api/generate' \
 "seed": 123
 }
 }'
+```
 
-Temperature
+**Temperature**
+
+```
 curl --location 'http://localhost:11434/api/generate' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -161,8 +236,11 @@ curl --location 'http://localhost:11434/api/generate' \
 "temperature": 0
 }
 }'
+```
 
-Response in JSON
+**Response in JSON**
+
+```
 curl --location 'http://localhost:11434/api/generate' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -171,8 +249,11 @@ curl --location 'http://localhost:11434/api/generate' \
 "format": "json",
 "stream": false
 }'
+```
 
-Add all the parameters
+**Add all the parameters**
+
+```
 curl --location 'http://localhost:11434/api/generate' --header 'Content-Type: application/json' --data '{
 "model": "mistral",
 "prompt": "Why is the sky blue?",
@@ -212,8 +293,11 @@ curl --location 'http://localhost:11434/api/generate' --header 'Content-Type: ap
 "num_thread": 8
 }
 }'
+```
 
-Chat with Ollama Model
+**Chat with Ollama Model**
+
+```
 curl --location 'http://localhost:11434/api/chat' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -225,8 +309,11 @@ curl --location 'http://localhost:11434/api/chat' \
 }
 ]
 }'
+```
 
-Chat with previous messages
+**Chat with previous messages**
+
+```
 curl --location 'http://localhost:11434/api/chat' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -246,8 +333,11 @@ curl --location 'http://localhost:11434/api/chat' \
 }
 ]
 }'
+```
 
-Chat about an Image
+**Chat about an Image**
+
+```
 curl --location 'http://localhost:11434/api/chat' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -262,8 +352,11 @@ curl --location 'http://localhost:11434/api/chat' \
 }
 ]
 }'
+```
 
-Chat requests with Reproducible outputs
+**Chat requests with Reproducible outputs**
+
+```
 curl --location 'http://localhost:11434/api/chat' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -279,8 +372,11 @@ curl --location 'http://localhost:11434/api/chat' \
 "temperature": 0
 }
 }'
+```
 
-Chat with Tools
+**Chat with Tools**
+
+```
 curl --location 'http://localhost:11434/api/chat' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -323,16 +419,22 @@ curl --location 'http://localhost:11434/api/chat' \
 }
 ]
 }'
+```
 
-Generate embeddings
+**Generate embeddings**
+
+```
 curl --location 'http://localhost:11434/api/embed' \
 --header 'Content-Type: application/json' \
 --data '{
 "model": "mistral",
 "input": "Why is the sky blue?"
 }'
+```
 
-Embeddings for multiple inputs
+**Embeddings for multiple inputs**
+
+```
 curl --location 'http://localhost:11434/api/embed' \
 --header 'Content-Type: application/json' \
 --data '{
@@ -342,3 +444,4 @@ curl --location 'http://localhost:11434/api/embed' \
 "Why is the grass green?"
 ]
 }'
+```

@@ -44,6 +44,7 @@
         <module>Evaluation Testing Fact Checking Evaluator</module>
         <module>Function calling</module>
         <module>Function calling Json Class Description</module>
+        <module>Spring AI tool</module>
         <module>Generic Bean Types using High Level ChatClient API</module>
         <module>Generic Bean Types using Low Level ChatModel API</module>
         <module>Hello With Default Model</module>
@@ -104,7 +105,7 @@
         <module>Redis Vector Store Custom Configuration With Jedis</module>
         <module>Redis Vector Store ETL Tika</module>
         <module>Return Entity</module>
-        <module>Return Entity List</module>
+        <module>Return Entity List Parameterized Type Reference</module>
         <module>Returning a ChatResponse</module>
         <module>Spring Ai Roles</module>
         <module>Similarity Search</module>
