@@ -1,4 +1,4 @@
 # Getting Started
 
-read more https://wesome.org/index.php/spring-ai-ollama-function-calling-json-class-description
+read more https://wesome.org/spring-ai-ollama-function-calling-json-class-description
 

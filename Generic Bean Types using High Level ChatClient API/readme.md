@@ -1,4 +1,4 @@
 # Getting Started
 
-read more https://wesome.org/index.php/spring-ai-generic-bean-types-using-high-level-chat-client
+read more https://wesome.org/spring-ai-generic-bean-types-using-high-level-chat-client
 

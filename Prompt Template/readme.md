@@ -1,4 +1,4 @@
 # Getting Started
 
-read more https://wesome.org/index.php/spring-ai-prompt-template
+read more https://wesome.org/spring-ai-prompt-template
 

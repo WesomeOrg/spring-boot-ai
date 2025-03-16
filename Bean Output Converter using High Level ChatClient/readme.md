@@ -1,4 +1,4 @@
 # Getting Started
 
-read more https://wesome.org/index.php/spring-ai-bean-output-converter-using-high-level-chat-client
+read more https://wesome.org/spring-ai-bean-output-converter-using-high-level-chat-client
 

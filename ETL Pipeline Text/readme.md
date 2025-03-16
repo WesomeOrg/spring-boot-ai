@@ -1,3 +1,3 @@
 # Getting Started
 
-read more 
+read more https://wesome.org/spring-ai-etl-document-text-reader
