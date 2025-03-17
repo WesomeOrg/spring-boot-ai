@@ -1,1 +1,0 @@
-curl --location 'curl --location 'http://localhost:8080/hello?prompt=i%20want%20to%20learn%20Python'
