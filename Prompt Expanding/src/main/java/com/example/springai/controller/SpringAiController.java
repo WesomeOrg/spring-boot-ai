@@ -25,11 +25,11 @@ public class SpringAiController {
                 If the sentiment is negative, apologize and suggest that they can reach out to customer service. Make sure to use specific details from the review.
                 Write in a concise and professional tone.
                 Sign the email as `AI customer agent`.
-
+                
                 Customer review: ```{userMessageText}```
-
+                
                 Review sentiment: {sentiment}
-
+                
                 """;
         var sentiment = "negative";
 

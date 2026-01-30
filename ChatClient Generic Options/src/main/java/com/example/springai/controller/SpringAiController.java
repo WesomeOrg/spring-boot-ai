@@ -15,8 +15,8 @@ public class SpringAiController {
         this.chatClient = chatClient.build();
     }
 
-    @GetMapping ("/genericChatOptions")
-    String chatWithGenericOptions(@RequestParam (defaultValue = "Hello, I am learning Ai with Spring") String message) {
+    @GetMapping("/genericChatOptions")
+    String chatWithGenericOptions(@RequestParam(defaultValue = "Hello, I am learning Ai with Spring") String message) {
         Prompt prompt = new Prompt(message, ChatOptions.builder().temperature(Double.valueOf(1.3f)).build());
         return this.chatClient.prompt(prompt).call().content();
     }

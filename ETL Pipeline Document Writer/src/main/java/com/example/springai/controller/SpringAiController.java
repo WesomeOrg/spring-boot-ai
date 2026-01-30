@@ -20,12 +20,12 @@ import java.util.Map;
 public class SpringAiController {
     private final Resource apples;
 
-    public SpringAiController(@Value ("classpath:apples.st") Resource apples) {
+    public SpringAiController(@Value("classpath:apples.st") Resource apples) {
         this.apples = apples;
     }
 
-    @GetMapping ("/documentWrite")
-    List <Document> documentWrite() throws IOException {
+    @GetMapping("/documentWrite")
+    List<Document> documentWrite() throws IOException {
         var textReader = new TextReader(apples);
         textReader.getCustomMetadata()
                 .putAll(Map.of("length", apples.contentLength(), "last modified", LocalDateTime.ofInstant(Instant.ofEpochMilli(apples.lastModified()), ZoneId.systemDefault())));

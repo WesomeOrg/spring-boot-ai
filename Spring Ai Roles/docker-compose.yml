@@ -8,12 +8,11 @@ services:
       test: ollama --version || exit 1
     command: serve
     volumes:
-      - ./ollama/ollama:/root/.ollama
-      - ./entrypoint.sh:/entrypoint.sh
+      - ollama-volume:/root/.ollama
     pull_policy: missing
     tty: true
-    restart: no
-    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+    restart: unless-stopped
+    # entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
   prometheus:
     image: prom/prometheus:latest
     container_name: 'prometheus'

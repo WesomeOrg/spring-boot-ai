@@ -9,7 +9,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 import java.nio.file.DirectoryStream;

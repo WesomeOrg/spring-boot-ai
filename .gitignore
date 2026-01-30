@@ -29,3 +29,5 @@ replay_pid*
 
 # intelij idea
 *.iml
+*/target
+*/ollama

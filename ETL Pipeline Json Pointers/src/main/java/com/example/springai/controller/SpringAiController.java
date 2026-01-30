@@ -19,7 +19,7 @@ public class SpringAiController {
 
     @GetMapping("/jsonDocument")
     List<Document> jsonDocument() {
-        JsonReader jsonReader = new JsonReader(this.apples,  "taste");
+        JsonReader jsonReader = new JsonReader(this.apples, "taste");
         return jsonReader.get("/details/0");
     }
 }

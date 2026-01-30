@@ -20,7 +20,7 @@ public class SpringAiController {
     List<CountryCapital> entityList() {
         String prompt = """
                                 Give me the 5 countries and there capital.
-                                                                    
+                
                                 Your response should be in JSON format.
                                 Do not include any explanations, only provide a RFC8259 compliant JSON response following this format without deviation.
                                 Do not include markdown code blocks in your response.

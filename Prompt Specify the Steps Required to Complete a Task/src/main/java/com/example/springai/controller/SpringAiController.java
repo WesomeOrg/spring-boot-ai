@@ -25,9 +25,9 @@ public class SpringAiController {
                 2 - Translate the summary into French.
                 3 - List each name in the French summary.
                 4 - Output a json object that contains the following keys: french_summary, num_names.
-
+                
                 Separate your answers with line breaks.
-
+                
                 Text:
                 ```{systemMessageText}```
                 """;

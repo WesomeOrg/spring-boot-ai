@@ -24,7 +24,7 @@ public class SpringAiController {
                 - First, work out your own solution to the problem including the final total.
                 - Then compare your solution to the student's solution and evaluate if the student's solution is correct or not.
                 Don't decide if the student's solution is correct until you have done the problem yourself.
-
+                
                 Use the following format:
                 Question:
                 ```
@@ -48,7 +48,7 @@ public class SpringAiController {
                 ```
                 correct or incorrect
                 ```
-
+                
                 Question:
                 ```
                 I'm building a solar power installation and I need help working out the financials.

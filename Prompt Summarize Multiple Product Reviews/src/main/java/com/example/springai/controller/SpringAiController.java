@@ -22,9 +22,9 @@ public class SpringAiController {
     public List<String> prompt() {
         String systemMessageText = """
                 Your task is to extract relevant information from a product review from an ecommerce site to give feedback to the Shipping department.
-
+                
                 From the review below, delimited by triple quotes extract the information relevant to shipping and delivery. Limit to 30 words.
-
+                
                 Review:
                 ```{userMessage}```
                 """;

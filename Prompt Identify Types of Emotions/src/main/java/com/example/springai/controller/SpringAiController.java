@@ -21,9 +21,9 @@ public class SpringAiController {
     public String prompt() {
         var systemMessageText = """
                 What is the sentiment of the following product review, which is delimited with triple backticks?
-
+                
                 Give your answer as a single word, either "positive" or "negative".
-
+                
                 Review:
                 ```{userMessageText}```
                 """;

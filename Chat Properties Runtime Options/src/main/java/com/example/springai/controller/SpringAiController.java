@@ -21,7 +21,7 @@ public class SpringAiController {
                 .build()).build();
     }
 
-    @GetMapping ("/hello")
+    @GetMapping("/hello")
     String hello() {
         String helloPrompt = "Hello, I am learning Ai with Spring";
         return this.chatClient.prompt().user(helloPrompt).call().content();

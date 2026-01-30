@@ -5,7 +5,9 @@ https://ik.imagekit.io/g2zqnpc4fx/springai/spring_ai_advisors.png
 ![Ollama on Docker](https://ik.imagekit.io/g2zqnpc4fx/springai/ollama_on_docker.png)
 
 [Ollama on Docker](https://wesome.org/ollama-docker)
-Ollama can be easily downloaded and installed on all major OS platforms, such as Linux, Macintosh, and Windows. The official download link provides more information about the installation process. We will install Ollama on Docker for our tutorial, which is common for all OS platforms.
+Ollama can be easily downloaded and installed on all major OS platforms, such as Linux, Macintosh, and Windows. The
+official download link provides more information about the installation process. We will install Ollama on Docker for
+our tutorial, which is common for all OS platforms.
 
 [Read More About Ollama On Docker With API Integration](https://wesome.org/ollama-llm-api-integration)
 

@@ -21,11 +21,11 @@ public class SpringAiController {
     public String prompt() {
         var systemMessageText = """
                 Your task is to help a marketing team create a description for a retail website of a product based on a technical fact sheet.
-
+                
                 Write a product description based on the information provided in the technical specifications delimited by triple backticks.
-
+                
                 Use at most 50 words.
-
+                
                 Technical specifications:
                 ```{userMessageText}```
                 """;
@@ -39,30 +39,30 @@ public class SpringAiController {
                 - Chair is available with or without armrests.
                 - Suitable for home or business settings.
                 - Qualified for contract use.
-
+                
                 CONSTRUCTION
                 - 5-wheel plastic coated aluminum base.
                 - Pneumatic chair adjust for easy raise/lower action.
-
+                
                 DIMENSIONS
                 - WIDTH 53 CM | 20.87”
                 - DEPTH 51 CM | 20.08”
                 - HEIGHT 80 CM | 31.50”
                 - SEAT HEIGHT 44 CM | 17.32”
                 - SEAT DEPTH 41 CM | 16.14”
-
+                
                 OPTIONS
                 - Soft or hard-floor caster options.
                 - Two choices of seat foam densities: medium (1.8 lb/ft3) or high (2.8 lb/ft3)
                 - Armless or 8 position PU armrests
-
+                
                 MATERIALS
                 SHELL BASE GLIDER
                 - Cast Aluminum with modified nylon PA6/PA66 coating.
                 - Shell thickness: 10 mm.
                 SEAT
                 - HD36 foam
-
+                
                 COUNTRY OF ORIGIN
                 - Italy
                 """;

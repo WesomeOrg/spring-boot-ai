@@ -1,4 +1,5 @@
 # Spring Ai Chat Response Default System Text
+
 ```
 curl --location 'http://localhost:8080/defaultSystemText'
 ```

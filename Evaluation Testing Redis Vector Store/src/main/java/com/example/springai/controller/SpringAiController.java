@@ -20,8 +20,8 @@ public class SpringAiController {
         this.chatClient = builder.build();
     }
 
-    @GetMapping ("/redisVectorStore")
-    public ChatResponse redisVectorStore(@RequestParam (value = "question", defaultValue = "What is Spring Framework?") String question) {
+    @GetMapping("/redisVectorStore")
+    public ChatResponse redisVectorStore(@RequestParam(value = "question", defaultValue = "What is Spring Framework?") String question) {
         return chatClient.prompt()
                 .advisors(new QuestionAnswerAdvisor(redisVectorStore))
                 .user(question)

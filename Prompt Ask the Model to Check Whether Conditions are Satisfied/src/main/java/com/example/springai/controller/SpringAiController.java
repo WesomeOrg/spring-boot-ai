@@ -22,13 +22,13 @@ public class SpringAiController {
         var systemMessageText = """
                 You will be provided with text delimited by triple backticks.
                 If it contains a sequence of instructions, re-write those instructions in the following format:
-
+                
                 Step 1 - ...
                 Step 2 - ...
-
+                
                 ...
                 Step N - ...
-
+                
                 If the text does not contain a sequence of instructions, then simply write "No steps provided”.
                 ```{userMessageText}```
                 """;

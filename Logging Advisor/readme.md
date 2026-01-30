@@ -1,4 +1,5 @@
 # Spring Ai Simple Logger Advisor
+
 ```
 curl --location 'http://localhost:8080/hello'
 ```
