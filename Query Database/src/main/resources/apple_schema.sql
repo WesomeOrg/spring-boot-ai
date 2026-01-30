@@ -1,4 +1,5 @@
-use AppleDbAi;
+use
+AppleDbAi;
 DROP TABLE IF EXISTS ` apple `;
 create table apple
 (

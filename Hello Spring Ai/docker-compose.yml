@@ -17,7 +17,7 @@ services:
       - OLLAMA_NUM_PARALLEL=1
     entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
     networks:
-      - redis_networks
+      - ollama_networks
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
@@ -35,11 +35,11 @@ services:
       - open_webui_volume:/app/backend/data
     restart: unless-stopped
     networks:
-      - redis_networks
+      - ollama_networks
 
 volumes:
   open_webui_volume: { }
   ollama_volume: { }
 networks:
-  redis_networks:
+  ollama_networks:
     driver: bridge
