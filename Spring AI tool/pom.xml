@@ -16,12 +16,12 @@
 
     <properties>
         <java.version>21</java.version>
-        <spring-ai.version>1.0.0-M6</spring-ai.version>
+        <spring-ai.version>2.0.0-M2</spring-ai.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.ai</groupId>
@@ -34,8 +34,14 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-spring-boot-docker-compose</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -62,7 +68,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>com.example.springai.SpringAiApplication</mainClass>
-
                 </configuration>
             </plugin>
         </plugins>

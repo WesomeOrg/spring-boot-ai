@@ -1,6 +1,5 @@
 package com.example.springai.configuration;
 
-import org.springframework.ai.chat.client.advisor.api.*;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
