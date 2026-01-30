@@ -21,7 +21,7 @@ services:
       - OLLAMA_BASE_URL=http://ollama_service:11434
       - WEBUI_AUTH= false
     depends_on:
-      - ollama-model
+      - ollama_service
     ports:
       - "8081:8080"
     extra_hosts:
