@@ -1,5 +1,5 @@
 services:
-  ollama-model:
+  ollama_service:
     image: ollama/ollama:latest
     container_name: ollama_container
     ports:

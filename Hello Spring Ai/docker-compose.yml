@@ -23,9 +23,8 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open_webui_container
     environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_BASE_URL=http://ollama_service:11434
       - WEBUI_AUTH= false
-      - USER_AGENT='SpringAi'
     depends_on:
       - ollama_service
     ports:

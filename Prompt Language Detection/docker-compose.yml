@@ -1,5 +1,5 @@
 services:
-  ollama-model:
+  ollama_service:
     image: ollama/ollama:latest
     container_name: ollama_container
     ports:
@@ -18,7 +18,8 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open_webui_container
     environment:
-      WEBUI_AUTH: false
+      - OLLAMA_BASE_URL=http://ollama_service:11434
+      - WEBUI_AUTH= false
     depends_on:
       - ollama-model
     ports:
