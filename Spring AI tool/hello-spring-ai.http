@@ -1,0 +1,6 @@
+### Ask current time from Model
+GET http://localhost:8080/currentDateTime
+
+### Ask current time from Model with tool
+GET http://localhost:8080/currentDateTimeWithTool
+

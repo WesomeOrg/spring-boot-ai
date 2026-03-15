@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.2</version>
+        <version>4.0.3</version>
         <relativePath/>
     </parent>
     <groupId>com.example.springai</groupId>
-    <artifactId>prompt_summarize_with_a_focus_on_price_and_value</artifactId>
+    <artifactId>prompt-summarize-with-a-focus-on-price_and_value</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Prompt Summarize with a Focus on Price and Value</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <spring-ai.version>2.0.0-M2</spring-ai.version>
     </properties>
     <dependencies>

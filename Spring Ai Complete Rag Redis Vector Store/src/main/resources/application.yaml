@@ -1,0 +1,10 @@
+#spring:
+#  data:
+#    redis:
+#      url: <redis instance url>
+#  ai:
+#    vectorstore:
+#      redis:
+#        initialize-schema: true
+#        index-name: custom-index
+#        prefix: custom-prefix

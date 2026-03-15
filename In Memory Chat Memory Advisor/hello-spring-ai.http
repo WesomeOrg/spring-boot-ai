@@ -1,0 +1,9 @@
+### In Memory Chat Memory Advisor
+GET http://localhost:8080/hello
+
+### Set Context in Memory
+GET http://localhost:8080/hello?prompt=hello i am batman
+
+### Retrive context from in momory
+GET http://localhost:8080/hello?prompt=who am i
+

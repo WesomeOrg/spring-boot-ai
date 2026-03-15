@@ -9,10 +9,13 @@ services:
     command: serve
     volumes:
       - ollama-volume:/root/.ollama
+    #   spring boot will pull the model automatically, uncomment below if required to pull other model or running standalone
+    # - ./entrypoint.sh:/entrypoint.sh
     pull_policy: missing
     tty: true
     restart: unless-stopped
-    # entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+    #   spring boot will pull the model automatically, uncomment below if required to pull other model or running standalone
+    #entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
@@ -30,22 +33,18 @@ services:
       - open-webui-volume:/app/backend/data
     restart: unless-stopped
 
-  redis:
-    image: redislabs/redismod
+  # Redis Standalone Built-in insight UI http://localhost:8001
+  redis_service:
+    image: redis/redis-stack:latest
     container_name: redislabs_container
     restart: unless-stopped
     ports:
       - "6379:6379"
-
-  #  in redis-insight ui, add host name as redis
-  redis-insight:
-    image: redis/redisinsight:latest
-    container_name: redis_insight_container
-    restart: unless-stopped
-    ports:
-      - '5540:5540'
+      - "8001:8001"
     volumes:
-      - redisinsight_db:/db
+      - redis_volume:/data
+    networks:
+      - ollama_networks
 
 volumes:
   open-webui-volume: { }

@@ -1,41 +1,58 @@
 package com.example.springai.configuration;
 
+import org.springframework.ai.chat.client.ChatClientRequest;
+import org.springframework.ai.chat.client.ChatClientResponse;
+import org.springframework.ai.chat.client.advisor.api.AdvisorChain;
+import org.springframework.ai.chat.client.advisor.api.BaseAdvisor;
+import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.Flux;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class ReReadingAdvisor implements CallAroundAdvisor, StreamAroundAdvisor {
-    private AdvisedRequest before(AdvisedRequest advisedRequest) {
+public class ReReadingAdvisor implements BaseAdvisor {
+    private static final String DEFAULT_RE2_ADVISE_TEMPLATE = """
+            {re2_input_query}
+            Read the question again: {re2_input_query}
+            """;
 
-        Map<String, Object> advisedUserParams = new HashMap<>(advisedRequest.userParams());
-        advisedUserParams.put("re2_input_query", advisedRequest.userText());
+    private final String re2AdviseTemplate;
 
-        return AdvisedRequest.from(advisedRequest).userText("""
-                {re2_input_query}
-                Read the question again: {re2_input_query}
-                """).userParams(advisedUserParams).build();
+    private int order = 0;
+
+    public ReReadingAdvisor() {
+        this(DEFAULT_RE2_ADVISE_TEMPLATE);
+    }
+
+    public ReReadingAdvisor(String re2AdviseTemplate) {
+        this.re2AdviseTemplate = re2AdviseTemplate;
     }
 
     @Override
-    public AdvisedResponse aroundCall(AdvisedRequest advisedRequest, CallAroundAdvisorChain chain) {
-        return chain.nextAroundCall(this.before(advisedRequest));
+    public ChatClientRequest before(ChatClientRequest chatClientRequest, AdvisorChain advisorChain) {
+        String augmentedUserText = PromptTemplate.builder()
+
+                .template(this.re2AdviseTemplate).variables(Map.of("re2_input_query", chatClientRequest.prompt().getUserMessage().getText()))
+                .build()
+                .render();
+
+        return chatClientRequest.mutate()
+                .prompt(chatClientRequest.prompt().augmentUserMessage(augmentedUserText))
+                .build();
     }
 
     @Override
-    public Flux<AdvisedResponse> aroundStream(AdvisedRequest advisedRequest, StreamAroundAdvisorChain chain) {
-        return chain.nextAroundStream(this.before(advisedRequest));
+    public ChatClientResponse after(ChatClientResponse chatClientResponse, AdvisorChain advisorChain) {
+        return chatClientResponse;
     }
 
     @Override
     public int getOrder() {
-        return 0;
+        return this.order;
     }
 
-    @Override
-    public String getName() {
-        return this.getClass().getSimpleName();
+    public ReReadingAdvisor withOrder(int order) {
+        this.order = order;
+        return this;
     }
 }

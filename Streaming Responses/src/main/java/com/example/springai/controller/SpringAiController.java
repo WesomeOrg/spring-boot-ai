@@ -13,7 +13,7 @@ public class SpringAiController {
         this.chatClient = chatClient.build();
     }
 
-    @GetMapping("/hello")
+    @GetMapping("/flux")
     Flux<String> hello() {
         String helloPrompt = "Hello, want to learn Ai with Spring, please guide me.";
         return this.chatClient.prompt().user(helloPrompt).stream().content();

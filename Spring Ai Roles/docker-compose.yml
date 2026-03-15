@@ -9,10 +9,13 @@ services:
     command: serve
     volumes:
       - ollama-volume:/root/.ollama
+    #   spring boot will pull the model automatically, uncomment below if required to pull other model or running standalone
+    # - ./entrypoint.sh:/entrypoint.sh
     pull_policy: missing
     tty: true
     restart: unless-stopped
-    # entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+    #   spring boot will pull the model automatically, uncomment below if required to pull other model or running standalone
+    #entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
   prometheus:
     image: prom/prometheus:latest
     container_name: 'prometheus'

@@ -9,6 +9,8 @@ services:
     command: serve
     volumes:
       - ollama-volume:/root/.ollama
+    #   spring boot will pull the model automatically, uncomment below if required to pull other model or running standalone
+    # - ./entrypoint.sh:/entrypoint.sh
     pull_policy: missing
     tty: true
     restart: unless-stopped

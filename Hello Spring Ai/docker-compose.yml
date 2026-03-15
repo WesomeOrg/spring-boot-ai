@@ -9,13 +9,15 @@ services:
     command: serve
     volumes:
       - ollama_volume:/root/.ollama
-    #      - ./entrypoint.sh:/entrypoint.sh
+    #   spring boot will pull the model automatically, uncomment below if required to pull other model or running standalone
+    # - ./entrypoint.sh:/entrypoint.sh
     pull_policy: missing
     tty: true
     restart: unless-stopped
     environment:
       - OLLAMA_NUM_PARALLEL=1
-    #    entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
+    #   spring boot will pull the model automatically, uncomment below if required to pull other model or running standalone
+    #entrypoint: [ "/usr/bin/bash", "/entrypoint.sh" ]
     networks:
       - ollama_networks
 

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpringAiController {
     private final ChatClient chatClient;
 
-
     public SpringAiController(ChatClient.Builder chatClient) {
         ReReadingAdvisor reReadingAdvisor = new ReReadingAdvisor();
         this.chatClient = chatClient.defaultSystem("You are a friendly chat bot that answers question in very detail with example in a story format.")

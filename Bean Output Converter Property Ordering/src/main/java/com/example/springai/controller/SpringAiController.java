@@ -17,10 +17,10 @@ public class SpringAiController {
     @GetMapping("/beanOutputParser")
     Country beanOutputParser(@RequestParam(value = "letter", defaultValue = "a") String letter) {
         var prompt = "Give me a country starts with {letter} and its capital.";
-        var actorsFilms = chatClient.prompt()
+        var country = chatClient.prompt()
                 .user(u -> u.text(prompt).param("letter", letter))
                 .call()
                 .entity(Country.class);
-        return actorsFilms;
+        return country;
     }
 }

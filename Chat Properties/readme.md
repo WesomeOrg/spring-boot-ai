@@ -1,2 +1,4 @@
-curl --location 'http://localhost:8080/hello'
 
+```
+curl --location 'http://localhost:8080/hello'
+```

@@ -1,1 +1,0 @@
-curl --location 'localhost:8080/redisVectorStore'

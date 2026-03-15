@@ -1,0 +1,17 @@
+###
+# call buyer-agent list_buyers tool
+GET http://localhost:8090/shop/purchase?query=get list of all buyers with there information
+###
+
+###
+# call buyer-agent seller_details_by_name tool
+GET http://localhost:8090/shop/purchase?query=give me information of buyer Rohit Raja
+###
+
+# call seller-agent list_buyers tool
+GET http://localhost:8090/shop/purchase?query=give me information of seller Laxmi Devi
+###
+
+# call seller-agent seller_details_by_name tool
+GET http://localhost:8090/shop/purchase?query=get list of all sellers with there information
+###

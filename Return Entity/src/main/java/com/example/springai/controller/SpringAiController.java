@@ -16,7 +16,7 @@ public class SpringAiController {
     @GetMapping("/entity")
     Code entity() {
         String helloPrompt = """
-                Generate a coding language and there detail.
+                Generate a coding language name and its detail.
                 Your response should be in JSON format.
                 Do not include any explanations, only provide a RFC8259 compliant JSON response following this format without deviation.
                 Do not include markdown code blocks in your response.

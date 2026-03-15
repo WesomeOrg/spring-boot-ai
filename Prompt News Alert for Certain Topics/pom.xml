@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.2</version>
+        <version>4.0.3</version>
         <relativePath/>
     </parent>
     <groupId>com.example.springai</groupId>
-    <artifactId>prompt_news_alert_for_certain_topics</artifactId>
+    <artifactId>prompt-news-alert-for-certain-topics</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Prompt News Alert for Certain Topics</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <spring-ai.version>2.0.0-M2</spring-ai.version>
     </properties>
     <dependencies>

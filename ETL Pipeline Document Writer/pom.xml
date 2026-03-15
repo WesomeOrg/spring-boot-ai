@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.2</version>
+        <version>4.0.3</version>
         <relativePath/>
     </parent>
     <groupId>com.example.springai</groupId>
-    <artifactId>etl_pipeline_document_writer</artifactId>
+    <artifactId>etl-pipeline-document-writer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ETL Pipeline Document Writer</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <spring-ai.version>2.0.0-M2</spring-ai.version>
     </properties>
     <dependencies>

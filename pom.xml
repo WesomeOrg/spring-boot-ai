@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.2</version>
+        <version>4.0.3</version>
         <relativePath/>
     </parent>
     <artifactId>spring-boot-ai</artifactId>
@@ -14,7 +14,7 @@
     <name>spring ai ollama</name>
     <modules>
         <module>Hello Spring Ai</module>
-        <module>Bean Output Converter using Low Level ChatModel</module>
+<!--        <module>Bean Output Converter using Low Level ChatModel</module> error -->
         <module>Bean Output Converter using High Level ChatClient</module>
         <module>Bean Output Converter Property Ordering</module>
         <module>Chat Properties</module>
@@ -42,13 +42,19 @@
         <module>ETL Pipeline Tika</module>
         <module>Evaluation Testing Redis Vector Store</module>
         <module>Evaluation Testing Fact Checking Evaluator</module>
+        <!--Deprecated-->
         <module>Function calling</module>
+        <!--Deprecated-->
         <module>Function calling Json Class Description</module>
-        <module>Spring AI tool</module>
+        <module>Spring Ai Tool</module>
+        <module>Spring Ai Tool Taking Actions</module>
         <module>Generic Bean Types using High Level ChatClient API</module>
         <module>Generic Bean Types using Low Level ChatModel API</module>
         <module>Hello With Default Model</module>
         <module>In Memory Chat Memory Advisor</module>
+        <module>Jdbc H2 Chat Memory Advisor</module>
+        <module>Jdbc Mysql Chat Memory Advisor</module>
+        <module>Message Chat Memory Advisor</module>
         <module>List Output Converter</module>
         <module>List Output Converter using the Low Level ChatModel API</module>
         <module>Logging Advisor</module>
@@ -92,7 +98,11 @@
         <module>Prompt Summarize with a Focus on Shipping and Delivery</module>
         <module>Prompt Summarize with a Word Sentence Character Limit</module>
         <module>Prompt Template</module>
+        <module>Custom Prompt Template</module>
         <module>Prompt Template Message</module>
+        <module>User Messages Metadata</module>
+        <module>Multiple User Messages Metadata</module>
+        <module>Default Metadata Support</module>
         <module>Prompt The Text is too Long</module>
         <module>Prompt Tone Transformation</module>
         <module>Prompt Translation</module>
@@ -100,19 +110,24 @@
         <module>Prompt Universal Translator</module>
         <module>Prompt with String Template</module>
         <module>Query Database</module>
-        <module>Redis Vector Store</module>
-        <module>Redis Vector Store With Jedis</module>
-        <module>Redis Vector Store Custom Configuration With Jedis</module>
-        <module>Redis Vector Store ETL Tika</module>
+        <module>Spring Ai Rag Redis Vector Store</module>
+        <module>Spring Ai Rag Oracle Vector Store</module>
+        <module>Spring Ai Rag Redis Vector Store With Jedis</module>
+        <module>Spring Ai Rag Redis Vector Store Custom Configuration With Jedis</module>
+        <module>Spring Ai Rag Redis Vector Store ETL Tika</module>
         <module>Return Entity</module>
         <module>Return Entity List Parameterized Type Reference</module>
+        <module>Return Entity Native Structured Output</module>
+        <module>Return Entity List Native Structured Output</module>
         <module>Returning a ChatResponse</module>
         <module>Spring Ai Roles</module>
-        <module>Similarity Search</module>
-        <module>Simple Vector Store</module>
-        <module>Ollama CodeLlama with Redis Vector Store</module>
+        <module>Spring Ai Rag Similarity Search</module>
+        <module>Spring Ai Rag Simple Vector Store</module>
+        <module>Spring Ai Rag Ollama CodeLlama with Redis Vector Store</module>
         <module>Streaming Responses</module>
+        <module>Streaming Responses Entity</module>
         <module>Spring Ai Observability</module>
+        <module>Spring Ai Agentic AI</module>
     </modules>
     <build>
         <plugins>

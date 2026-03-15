@@ -1,7 +1,7 @@
-# Spring Ai Chat Response Streaming Responses
+**Spring Ai Chat Response Streaming Responses**
 
 [Read More About Spring Ai Chat Response Streaming Responses](https://wesome.org/spring-ai-chat-response-streaming-responses)
 
 ```
-curl --location 'http://localhost:8080/hello'
+curl --location 'http://localhost:8080/flux'
 ```

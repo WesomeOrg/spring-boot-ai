@@ -17,9 +17,13 @@ public class SpringAiController {
         this.chatClient = chatClient.build();
     }
 
-    @GetMapping("/hello")
+    @GetMapping("/promptTemplate")
     String hello(@RequestParam(value = "topic", required = false, defaultValue = "Ai with Spring") String topic) {
-        PromptTemplate promptTemplate = new PromptTemplate("Hello, I am learning {topic}");
+        var promptString = """
+                Hello, I am learning
+                {topic}
+                """;
+        PromptTemplate promptTemplate = new PromptTemplate(promptString);
         Prompt prompt = promptTemplate.create(Map.of("topic", topic));
         return this.chatClient.prompt(prompt).call().content();
     }

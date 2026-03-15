@@ -1,0 +1,2 @@
+### Prompt Re Reading Advisor
+GET http://localhost:8080/defaultSystemText

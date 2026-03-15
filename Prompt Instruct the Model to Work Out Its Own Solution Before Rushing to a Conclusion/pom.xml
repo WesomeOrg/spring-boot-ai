@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.2</version>
+        <version>4.0.3</version>
         <relativePath/>
     </parent>
     <groupId>com.example.springai</groupId>
-    <artifactId>prompt_instruct_the_model_to_work_out_its_own_solution_before_rushing_to_a_conclusion</artifactId>
+    <artifactId>prompt-instruct-the-model-to-work-out-its-own-solution-before-rushing-to-a-conclusion</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Prompt Instruct the Model to Work Out Its Own Solution Before Rushing to a Conclusion</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <spring-ai.version>2.0.0-M2</spring-ai.version>
     </properties>
     <dependencies>
